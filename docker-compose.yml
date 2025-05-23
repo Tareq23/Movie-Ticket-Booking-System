@@ -33,7 +33,19 @@ services:
     restart: unless-stopped
 
 
+  keycloak:
+    container_name: ticket_booking_security_keycloak
+    image: quay.io/keycloak/keycloak:26.2.2
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
 
+    ports:
+      - 8090:8080
+    command:
+      - start-dev
+    networks:
+      - ticket-booking-net
 
 networks:
   ticket-booking-net:

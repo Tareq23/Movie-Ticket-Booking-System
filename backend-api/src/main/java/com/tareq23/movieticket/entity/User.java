@@ -4,6 +4,7 @@ package com.tareq23.movieticket.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -17,12 +18,22 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence_generator")
+    @SequenceGenerator(name = "user_sequence_generator", sequenceName = "USER_SEQ", allocationSize = 1)
     @Column(name = "USER_ID")
-    private Integer id;
+    private Long id;
+
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "EMAIL", unique = true, nullable = false)
     private String email;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "PHONE", unique = true, nullable = false)
     private String contactNumber;
