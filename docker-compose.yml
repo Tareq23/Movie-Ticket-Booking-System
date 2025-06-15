@@ -8,6 +8,8 @@ services:
       POSTGRES_USER: tareq23
       POSTGRES_PASSWORD: tareq23
       PGDATA: /var/lib/postgresql/data
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: movie_ticket_booking
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
