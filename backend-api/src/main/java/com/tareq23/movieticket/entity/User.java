@@ -23,22 +23,22 @@ public class User {
     @Column(name = "USER_ID")
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "EMAIL", unique = true, nullable = false)
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "PHONE", unique = true, nullable = false)
+    @Column(name = "PHONE")
     private String contactNumber;
 
-    @Column(name = "DOB", unique = true, nullable = false)
+    @Column(name = "DOB", nullable = false)
     private LocalDate dateOfBirth;
 
     @Column(name = "created_at", updatable = false)

@@ -1,0 +1,11 @@
+
+
+ALTER TABLE USERS DROP CONSTRAINT IF EXISTS users_email_key;
+
+ALTER TABLE users
+    ALTER COLUMN password DROP NOT NULL,
+    ALTER COLUMN email DROP NOT NULL,
+    ADD CONSTRAINT users_email_unique UNIQUE (email),
+    ALTER COLUMN first_name DROP NOT NULL,
+    ALTER COLUMN last_name DROP NOT NULL,
+    ALTER COLUMN password DROP NOT NULL;
