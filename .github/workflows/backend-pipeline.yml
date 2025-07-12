@@ -44,7 +44,7 @@ jobs:
           java-version: 17
           distribution: 'corretto'
       - name: Running Unit Tests
-        run: :
+        run: |
           cd backend-api
           ./mvnw clean test
 
