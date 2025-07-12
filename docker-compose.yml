@@ -49,6 +49,16 @@ services:
     networks:
       - ticket-booking-net
 
+  mtb:
+    container_name: mtb_api
+    image: mtb/mtb:1.0.0
+    ports:
+      - 9009:9099
+    depends_on:
+      - postgres
+    networks:
+      - ticket-booking-net
+
 networks:
   ticket-booking-net:
     driver: bridge

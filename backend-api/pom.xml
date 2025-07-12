@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tareq23</groupId>
-	<artifactId>backend-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>backend-api</name>
-	<description>backend-api</description>
+	<artifactId>movie-ticket-booking</artifactId>
+	<version>1.0.0</version>
+	<name>movie-ticket-booking</name>
+	<description>movie-ticket-booking</description>
 	<url/>
 	<licenses>
 		<license/>
