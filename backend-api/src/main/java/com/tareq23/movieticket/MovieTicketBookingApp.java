@@ -16,7 +16,7 @@ public class MovieTicketBookingApp {
 
 	@GetMapping("/")
 	public String hello(){
-		return "Welcome to Movie Ticket Booking platform";
+		return "Github action";
 	}
 
 }
