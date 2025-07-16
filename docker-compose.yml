@@ -34,6 +34,29 @@ services:
       - ticket-booking-net
     restart: unless-stopped
 
+  elasticsearch:
+    container_name: ticket_booking_elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.18.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    networks:
+      - ticket-booking-net
+  kibana:
+    container_name: ticket_booking_kibana
+    image: docker.elastic.co/kibana/kibana:8.18.3
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://ticket_booking_elasticsearch:9200
+      - XPACK_SECURITY_ENABLED=false
+    networks:
+      - ticket-booking-net
+    depends_on:
+      - elasticsearch
 
   keycloak:
     container_name: ticket_booking_security_keycloak
@@ -49,15 +72,15 @@ services:
     networks:
       - ticket-booking-net
 
-  mtb:
-    container_name: mtb_api
-    image: mtb/mtb:1.0.0
-    ports:
-      - 9009:9099
-    depends_on:
-      - postgres
-    networks:
-      - ticket-booking-net
+#  mtb:
+#    container_name: mtb_api
+#    image: mtb/mtb:1.0.0
+#    ports:
+#      - 9009:9099
+#    depends_on:
+#      - postgres
+#    networks:
+#      - ticket-booking-net
 
 networks:
   ticket-booking-net:
